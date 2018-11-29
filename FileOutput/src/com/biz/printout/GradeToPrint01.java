@@ -26,12 +26,16 @@ public class GradeToPrint01 {
 			int intKor = (int)(Math.random() * (100-50+1)) + 50;
 			int intEng = (int)(Math.random() * (100-50+1)) + 50;
 			int intMath = (int)(Math.random() * (100-50+1)) + 50;
+			int intSum = intKor + intEng + intMath;
+			float floatAvg = intSum / 3.0f;
 			
 			GradeVO vo = new GradeVO();
 			vo.setStrNum(strNum);
 			vo.setIntKor(intKor);
 			vo.setIntEng(intEng);
 			vo.setIntMath(intMath);
+			vo.setIntSum(intSum);
+			vo.setFloatAvg(floatAvg);
 			gradeList.add(vo);
 			
 		}
@@ -41,7 +45,8 @@ public class GradeToPrint01 {
 				pw.println(gradeList.get(i).getStrNum() + ":" 
 							+ gradeList.get(i).getIntKor() + ":"
 							+ gradeList.get(i).getIntEng() + ":"
-							+ gradeList.get(i).getIntMath()
+							+ gradeList.get(i).getIntMath() + ":"
+							+ gradeList.get(i).getIntSum() 
 							);
 			}
 			
