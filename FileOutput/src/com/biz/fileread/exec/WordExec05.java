@@ -7,7 +7,7 @@ public class WordExec05 {
 		WordService ws = new WordService();
 		ws.makeWordList();
 		ws.getWord();
-		ws.shuffWord();
+		ws.shuffWordGame();
 
 	}
 

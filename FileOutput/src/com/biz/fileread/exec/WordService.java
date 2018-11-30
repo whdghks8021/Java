@@ -130,14 +130,22 @@ public class WordService {
 		int intIndex = (int)(Math.random() * wordCount);
 		wordVO = wordList.get(intIndex);
 	}
-	public void shuffWord() {
+	public void shuffWordGame() {
 		
 		String[] s = wordVO.getStrEng().split("");
 		List<String> shuffWord = Arrays.asList(s);
 		Collections.shuffle(shuffWord);
+		Scanner scanner = new Scanner(System.in);
 		
-		System.out.println(wordVO.getStrKor());
+		System.out.print(wordVO.getStrKor() + "\t");
 		System.out.println(shuffWord);
+		System.out.println("입력 >> ");
+		String strWord = scanner.nextLine();
 		
+		if(strWord.equalsIgnoreCase(wordVO.getStrEng())) {
+			System.out.println("정답입니다.");
+		} else {
+			System.out.println("오답입니다.");
+		}
 	}
 }
