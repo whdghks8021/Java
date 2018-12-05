@@ -12,7 +12,7 @@ public class MyClass07 {
 	}
 	
 	public void add(String strName, int intNum) {
-		String strAdd = strName + ":" + "" + intNum;
+		String strAdd = strName + ":" + intNum;
 		stList.add(strAdd);
 	}
 	public void view() {
