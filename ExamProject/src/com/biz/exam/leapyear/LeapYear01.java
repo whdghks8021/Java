@@ -1,51 +1,36 @@
 package com.biz.exam.leapyear;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Scanner;
+import java.io.PrintWriter;
 
+/*
+ * 임진왜란은 1592년에 발생했다.
+ * 1592년부터 2018년까지 윤년인 해를 찾아서
+ * 윤년들.txt 파일로 저장
+ * 
+ * ex) 1992년
+ * 	   1996년 ...
+ */
 public class LeapYear01 {
 
-	String strFile;
-	String[] strLeapYears;
-
-	public LeapYear01(String strFile) {
-		this.strFile = strFile;
-	}
-
-	public void fileRead() {
-		FileReader fr;
-		BufferedReader buffer;
-
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String strFile = "D:/bizwork/workspace/ExFiles/윤년들.txt";
+		PrintWriter pw ;
 		try {
-			fr = new FileReader(strFile);
-			buffer = new BufferedReader(fr);
-
-			while (true) {
-				String strLeap = buffer.readLine();
-				if (strLeap == null)
-					break;
-				strLeapYears = strLeap.split(" ");
-				int intYear = Integer.valueOf(strLeapYears[0]);
-				if (intYear % 4 == 0 && intYear % 100 != 0 || intYear % 400 == 0) {
-					System.out.println(intYear + "년은 윤년 입니다.");
-				} else {
-					System.out.println(intYear + "년은 평년 입니다.");
-				}
+			pw = new PrintWriter(strFile);
+			for(int i = 1592 ; i <= 2018 ; i ++) {
+				if (i % 4 == 0 && i % 100 != 0 || i % 400 == 0) {
+					pw.println(i + "년");
+				} 
 			}
-
-			buffer.close();
-			fr.close();
-
+			System.out.println("저장완료");
+			pw.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
+
 	}
 
 }
