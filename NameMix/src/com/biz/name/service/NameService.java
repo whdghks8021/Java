@@ -37,7 +37,10 @@ public class NameService {
 				String strFir = buffer.readLine();
 				if(strFir == null) break;
 				String[] strFirs = strFir.split(":");
-				firstNameList.add(strFirs[1]);
+				// 일부 특수문자는 단독으로 split 이 안되는 것들이 있다.
+				// 이때는 특수문자앞에 \를 2개를 넣어주면 된다.
+				String[] strFirs2 = strFirs[1].split("\\(");
+				firstNameList.add(strFirs2[0]);
 			}
 			buffer.close();
 			fr.close();
@@ -84,9 +87,10 @@ public class NameService {
 		PrintWriter pw ;
 		try {
 			pw = new PrintWriter(writeFile);
-			int intLen = firstNameList.size();
+			int intLen = secondNameList.size();
 			for(int i = 0 ; i < intLen ; i ++) {
-				pw.println(firstNameList.get(i) + secondNameList.get(i));
+				int intRan = (int)(Math.random() * intLen -1);
+				pw.println(firstNameList.get(intRan) + secondNameList.get(i));
 			}
 			pw.close();
 			System.out.println(intLen + "개 저장 완료");
@@ -94,6 +98,18 @@ public class NameService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+	}
+	public void viewName() {
+		Collections.shuffle(firstNameList);
+		Collections.shuffle(secondNameList);
+		
+			int intLen = secondNameList.size();
+			for(int i = 0 ; i < intLen ; i ++) { 
+				int intRan = (int)(Math.random() * intLen);
+				System.out.println(firstNameList.get(intRan) + secondNameList.get(i));
+			}
+			System.out.println(intLen + "개 출력 완료");
 		
 	}
 
