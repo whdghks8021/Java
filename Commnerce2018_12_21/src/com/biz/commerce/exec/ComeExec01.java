@@ -2,8 +2,14 @@ package com.biz.commerce.exec;
 
 import com.biz.commerce.service.ComeService;
 
+/*
+ * 지금부터 ComeExec01이라는 클래스를 시작한다.
+ */
 public class ComeExec01 {
 
+	/*
+	 * 
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
