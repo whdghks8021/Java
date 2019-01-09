@@ -20,11 +20,11 @@ public class BBsMainService {
 	
 	public void viewBBsList() {
 		bbsMainList = mainDao.selectAll();
-		System.out.println("============================================");
+		System.out.println("====================================================================");
 		System.out.println("나의 게시판 v1.0");
-		System.out.println("============================================");
+		System.out.println("====================================================================");
 		System.out.println("NO\t날짜\t작성자\t제목\t\t내용");
-		System.out.println("--------------------------------------------");
+		System.out.println("--------------------------------------------------------------------");
 		for(BBsMainVO v : bbsMainList) {
 			System.out.print(v.getB_id()+"  ");
 			System.out.print(v.getB_date()+"\t");
